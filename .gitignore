@@ -1,0 +1,12 @@
+
+\.vs/BattleSpace_Client/v15/
+
+BattleSpace_Client/Debug/BattleSp\.72FDAEF3\.tlog/
+
+*.idb
+
+*.obj
+
+*.log
+
+*.pdb
