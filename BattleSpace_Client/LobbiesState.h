@@ -1,18 +1,19 @@
 #pragma once
-#ifndef INTRO_STATE
-# define INTRO_STATE
+#pragma once
+#ifndef LOBBIES_STATE
+# define LOBBIES_STATE
 
 #include "Eventreceiver.h"
 #include <irrlicht.h>
 
-class IntroState {
+class LobbiesState : public State {
 private:
 	irr::IrrlichtDevice *device_;
 	irr::gui::IGUIEditBox *editbox;
 
 public:
-	IntroState(irr::IrrlichtDevice& device);
-	~IntroState();
+	LobbiesState(irr::IrrlichtDevice& device);
+	~LobbiesState();
 
 	void Events(EventReceiver *receiver);
 	void Update();
@@ -20,4 +21,5 @@ public:
 };
 
 
-#endif // !INTRO_STATE
+#endif // !LOBBIES_STATE
+

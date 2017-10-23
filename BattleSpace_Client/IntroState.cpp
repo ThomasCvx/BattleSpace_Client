@@ -1,6 +1,8 @@
 #include "IntroState.h"
 #include <irrlicht.h>
 #include "EventReceiver.h"
+#include "StateManager.h"
+#include "LobbiesState.h"
 
 IntroState::IntroState(irr::IrrlichtDevice& device) {
 	device_ = &device;
@@ -10,13 +12,19 @@ IntroState::~IntroState() {
 }
 
 void IntroState::Events(EventReceiver *receiver) {
-	if (receiver->IsKeyPressed(irr::KEY_RETURN)) {
-		//MenuState *ms = new MenuState(device);
-		//StateManager::Instance()->Replace(ms);
-	}
-	if (receiver->IsKeyPressed(irr::KEY_ESCAPE)) {
-		//MenuState *ms = new MenuState(device);
-		//StateManager::Instance()->Replace(ms);
+
+	if (editbox->getText() != NULL)
+	{
+		if (receiver->IsKeyPressed(irr::KEY_RETURN)) {
+			LobbiesState *ls = new LobbiesState(*device_);
+
+			StateManager::get().replace(ls);
+		}
+		if (receiver->IsKeyPressed(irr::KEY_ESCAPE)) {
+			LobbiesState *ls = new LobbiesState(*device_);
+
+			StateManager::get().replace(ls);
+		}
 	}
 }
 
@@ -28,8 +36,14 @@ void IntroState::Render() {
 	irr::video::IVideoDriver* driver = device_->getVideoDriver();
 	//irr::scene::ISceneManager* smgr = device.getSceneManager();
 	irr::gui::IGUIEnvironment* env = device_->getGUIEnvironment();
+
+	irr::gui::IGUIEditBox *editbox;
+
 	irr::gui::IGUISkin *skin = env->getSkin();
-//	irr::gui::IGUIFont *font = env->getFont("media/fontlucida.png");
+
+
+
+	//irr::gui::IGUIFont *font = env->getFont("media/fontlucida.png");
 	//if (font)
 		//skin->setFont(font);
 
