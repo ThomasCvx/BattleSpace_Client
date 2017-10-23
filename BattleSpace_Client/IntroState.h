@@ -6,6 +6,9 @@
 #include <irrlicht.h>
 
 class IntroState {
+private:
+	irr::IrrlichtDevice *device_;
+
 public:
 	IntroState(irr::IrrlichtDevice& device);
 	~IntroState();
