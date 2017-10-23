@@ -5,7 +5,7 @@
 #include "Eventreceiver.h"
 #include <irrlicht.h>
 
-class IntroState {
+class IntroState : public State {
 private:
 	irr::IrrlichtDevice *device_;
 	irr::gui::IGUIEditBox *editbox;
